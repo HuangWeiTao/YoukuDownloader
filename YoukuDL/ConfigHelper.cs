@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace YoukuDL
 {
+
     public class ConfigHelper
     {
         public static string VideoResolveTool = ConfigurationManager.AppSettings["videoResolveTool"];
