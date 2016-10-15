@@ -1,0 +1,64 @@
+﻿<Window x:Class="YoukuDL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YoukuDL"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1286.582" Width="1710.564">
+    <Window.Resources>
+        <local:DownloadStatusConverter x:Key="downloadStatusCvt"/>
+        <local:FileSizeConverter x:Key="fileSizeCvt"/>
+    </Window.Resources>
+    <Grid Margin="0,0,2,8">
+        <TextBox x:Name="tbx_url" HorizontalAlignment="Left" Height="76" Margin="10,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="493"/>
+        <Button x:Name="btn_download" Content="开始" HorizontalAlignment="Left" Margin="567,83,0,0" VerticalAlignment="Top" Width="133" Height="58" Click="btn_download_Click"/>
+        <DataGrid x:Name="dg_downlist" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Height="230" Width="690" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="文件名" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Title}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="大小" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding TotalSize, Converter={StaticResource fileSizeCvt}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="下载进度" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Progress}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="状态" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Status, Converter={StaticResource downloadStatusCvt}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="位置" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding StorePath}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="移除" Click="dg_item_delete"></MenuItem>
+                    <MenuItem Header="重新下载" Click="dg_item_redownload"></MenuItem>
+                    <MenuItem Header="打开所在文件夹" Click="dg_item_position"></MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+
+    </Grid>    
+</Window>
