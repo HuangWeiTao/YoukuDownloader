@@ -79,11 +79,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ConfigHelper.cs" />
+    <Compile Include="Helper\ConfigHelper.cs" />
     <Compile Include="DownloadManager.cs" />
     <Compile Include="DownloadPart.cs" />
     <Compile Include="DownloadStatus.cs" />
     <Compile Include="DownloadItem.cs" />
+    <Compile Include="Extension\EnumExtension.cs" />
+    <Compile Include="UIConverter\PercentConverter.cs" />
+    <Compile Include="VideoFormat.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -92,9 +95,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DownloadStatusConverter.cs" />
-    <Compile Include="FileHelper.cs" />
-    <Compile Include="FileSizeConverter.cs" />
+    <Compile Include="UIConverter\DownloadStatusConverter.cs" />
+    <Compile Include="Helper\FileHelper.cs" />
+    <Compile Include="UIConverter\FileSizeConverter.cs" />
+    <Compile Include="Helper\ProcessHelper.cs" />
     <Compile Include="Infrastructure\ILog.cs" />
     <Compile Include="Infrastructure\Log.cs" />
     <Compile Include="MainWindow.xaml.cs">

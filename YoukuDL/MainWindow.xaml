@@ -4,14 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YoukuDL"
+        xmlns:cvt="clr-namespace:YoukuDL.UIConverter"
         mc:Ignorable="d"
         Title="MainWindow" Height="1286.582" Width="1710.564">
     <Window.Resources>
-        <local:DownloadStatusConverter x:Key="downloadStatusCvt"/>
-        <local:FileSizeConverter x:Key="fileSizeCvt"/>
+        <cvt:DownloadStatusConverter x:Key="downloadStatusCvt"/>
+        <cvt:FileSizeConverter x:Key="fileSizeCvt"/>
+        <cvt:PercentConverter x:Key="percentCvt"/>
     </Window.Resources>
     <Grid Margin="0,0,2,8">
-        <TextBox x:Name="tbx_url" HorizontalAlignment="Left" Height="76" Margin="10,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="493"/>
+        <TextBox x:Name="tbx_url" HorizontalAlignment="Left" Height="76" Margin="10,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="493" MouseDoubleClick="tbx_url_MouseDoubleClick"/>
         <Button x:Name="btn_download" Content="开始" HorizontalAlignment="Left" Margin="567,83,0,0" VerticalAlignment="Top" Width="133" Height="58" Click="btn_download_Click"/>
         <DataGrid x:Name="dg_downlist" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Height="230" Width="690" AutoGenerateColumns="False">
             <DataGrid.Columns>
@@ -32,7 +34,7 @@
                 <DataGridTemplateColumn Header="下载进度" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Progress}"/>
+                            <TextBlock Text="{Binding Progress, Converter={StaticResource percentCvt}}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

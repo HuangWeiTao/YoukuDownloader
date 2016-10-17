@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YoukuDL
+namespace YoukuDL.Helper
 {
 
     public class ConfigHelper

@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YoukuDL
+namespace YoukuDL.Helper
 {
     public class FileHelper
     {       
 
-        public static string GenerateRandomFilePath(string ext = ".flv")
+        public static string GenerateRandomFilePath(string ext)
         {
             return System.IO.Path.Combine(ConfigHelper.TempDir, Guid.NewGuid() + ext);
         }

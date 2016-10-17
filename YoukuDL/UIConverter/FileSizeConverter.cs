@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace YoukuDL
+namespace YoukuDL.UIConverter
 {
     [ValueConversion(typeof(int), typeof(string))]
     public class FileSizeConverter : IValueConverter

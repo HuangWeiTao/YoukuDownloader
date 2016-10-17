@@ -15,7 +15,7 @@ namespace YoukuDL
         public static async Task AddItem(DownloadItem item)
         {
             itemList.Add(item);
-            await item.Download();
+            await item.Start();
         }
 
         public static void RemoveItem(DownloadItem item)

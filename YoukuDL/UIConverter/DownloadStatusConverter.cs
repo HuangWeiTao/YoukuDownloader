@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace YoukuDL
+namespace YoukuDL.UIConverter
 {
     [ValueConversion(typeof(DownloadStatus),typeof(string))]
     class DownloadStatusConverter : IValueConverter

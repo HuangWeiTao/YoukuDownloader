@@ -9,6 +9,9 @@ namespace YoukuDL
 {
     public enum DownloadStatus
     {
+        [Description("解析中")]
+        Preparing = -1,
+
         [Description("待下载")]
         New = 0,
 
