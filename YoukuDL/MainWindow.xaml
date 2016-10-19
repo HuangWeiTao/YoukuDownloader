@@ -6,46 +6,46 @@
         xmlns:local="clr-namespace:YoukuDL"
         xmlns:cvt="clr-namespace:YoukuDL.UIConverter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1286.582" Width="1710.564">
+        Title="MainWindow" Height="600" Width="800">
     <Window.Resources>
         <cvt:DownloadStatusConverter x:Key="downloadStatusCvt"/>
         <cvt:FileSizeConverter x:Key="fileSizeCvt"/>
         <cvt:PercentConverter x:Key="percentCvt"/>
     </Window.Resources>
-    <Grid Margin="0,0,2,8">
+    <Grid>
         <TextBox x:Name="tbx_url" HorizontalAlignment="Left" Height="76" Margin="10,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="493" MouseDoubleClick="tbx_url_MouseDoubleClick"/>
         <Button x:Name="btn_download" Content="开始" HorizontalAlignment="Left" Margin="567,83,0,0" VerticalAlignment="Top" Width="133" Height="58" Click="btn_download_Click"/>
         <DataGrid x:Name="dg_downlist" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Height="230" Width="690" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="文件名" IsReadOnly="True">
+                <DataGridTemplateColumn Width="100" Header="文件名" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Title}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="大小" IsReadOnly="True">
+                <DataGridTemplateColumn Width="50" Header="大小" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding TotalSize, Converter={StaticResource fileSizeCvt}}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="下载进度" IsReadOnly="True">
+                <DataGridTemplateColumn  Width="70" Header="下载进度" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Progress, Converter={StaticResource percentCvt}}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="状态" IsReadOnly="True">
+                <DataGridTemplateColumn Width="50" Header="状态" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Status, Converter={StaticResource downloadStatusCvt}}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="位置" IsReadOnly="True">
+                <DataGridTemplateColumn Width="*" Header="位置" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding StorePath}"/>
