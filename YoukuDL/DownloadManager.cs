@@ -29,6 +29,11 @@ namespace YoukuDL
             itemList.Clear();
         }        
 
+        public static bool CheckIfInQueue(string url)
+        {
+            return itemList.Any(item => item.Url.ToLower() == url.ToLower());
+        }
+
         public static void Bind(DataGrid control)
         {
             control.ItemsSource = itemList;

@@ -116,11 +116,16 @@ namespace YoukuDL
         {
             string url = tbx_url.Text.Trim();
 
-            DownloadItem videoItem = await ParseVideoInfo(url, VideoFormat.MP4);
-
-            await DownloadManager.AddItem(videoItem);
-
-            MessageBox.Show("完成");
+            if(DownloadManager.CheckIfInQueue(url))
+            {
+                MessageBox.Show("已经在下载列表中！");
+            }
+            else
+            {
+                DownloadItem videoItem = await ParseVideoInfo(url, VideoFormat.MP4);
+                await DownloadManager.AddItem(videoItem);
+            }            
+            
         }
 
         #endregion
@@ -161,6 +166,7 @@ namespace YoukuDL
             item.Status = DownloadStatus.New;
             item.StorePath = Path.Combine(ConfigHelper.DownloadDir, title + outputFormat.GetDescription());
             item.OutputFormat = outputFormat;
+            item.Url = parseUrl;
 
             return item;
         }

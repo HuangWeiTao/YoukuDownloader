@@ -123,6 +123,12 @@ namespace YoukuDL
         /// <returns></returns>
         public VideoFormat OutputFormat { get; set; }
 
+
+        /// <summary>
+        /// 视频播放地址
+        /// </summary>
+        public string Url { get; set; }
+
         #region 接口方法
 
         public async Task Start()
